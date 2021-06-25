@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caesar Cipher</title>
+    <style>
+      h2 {
+        font-size: 30px;
+        color: white;
+        padding: 5px;
+      }
+      h1{
+          font-size: 50px;
+          color: white;
+          background-color: red;
+          padding: 5px;
+      }
+      #head {
+        background-color: black;
+      }
+      table {
+        padding-left: 25px;
+      }
+      p {
+        font-size: 20px;
+      }
+      td {
+        padding: 10px;
+      }
+      button {
+        background-color: azure;
+        padding: 5px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Caesar Cipher Algorithm</h1>
+    <div id="head">
+      <h2>Caesar Cipher Algorithm - Encription</h2>
+    </div>
+
+    <table>
+      <tr>
+        <td>
+          <p>Input key :</p>
+        </td>
+        <td>
+          <input
+            onkeydown="down()"
+            onchange="dataChange()"
+            ,
+            type="text"
+            style="padding: 10px"
+            id="key"
+            placeholder="Input numbers only"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Input Massage :</p>
+        </td>
+        <td>
+          <input
+            onfocus=""
+            ,
+            onchange="dataChange()"
+            ,
+            type="text"
+            style="padding: 10px"
+            id="massage"
+            placeholder="Input Massage in Capitals"
+          />
+        </td>
+        <td>
+          <button onclick="getData1()">Generate</button>
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      function down() {
+        console.log("key down");
+        ocument.getElementById("massage").style.backgroundColor = "white";
+      }
+      function getData1() {
+        console.log("Input Data");
+        var key = document.getElementById("key").value;
+        var msj = document.getElementById("massage").value;
+        console.log("key : " + key);
+        console.log("massage : " + msj);
+        if (key != "" && msj != "") {
+          var ltrs = [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+          ];
+          var n = msj.length;
+          var k = parseInt(key);
+          //console.log(typeof parseInt(key));
+          var ms = new Array(n);
+          var nms = new Array(n);
+
+          //code
+          for (var i = 0; i < n; i++) {
+            ms[i] = msj.charAt(i);
+          }
+          for (var i = 0; i < n; i++) {
+            for (var j = 0; j < 26; j++) {
+              if (ms[i] == ltrs[j]) {
+                nms[i] = j;
+              }
+            }
+          }
+          var out = "";
+          for (var i = 0; i < n; i++) {
+            var p = nms[i] + k;
+            if (p > 25) {
+              p = p - 26;
+            }
+            out = out + ltrs[p];
+          }
+          console.log(out);
+          window.alert("Decryption of " + msj + " is " + out);
+        } else {
+          console.log("Input Data");
+          window.alert("Input Data Erroe... Checke again");
+          //document.getElementById("massage").style.backgroundColor="red";
+        }
+      }
+      let t = 0;
+      function dataChange() {
+        t++;
+        if (t > 2) {
+          console.log("Data Changed");
+        }
+      }
+    </script>
+
+    <div id="head">
+      <h2>Caesar Cipher Algorithm - Decription</h2>
+    </div>
+
+    <table>
+      <tr>
+        <td>
+          <p>Input key :</p>
+        </td>
+        <td>
+          <input
+            onkeydown="down()"
+            onchange="dataChange()"
+            ,
+            type="text"
+            style="padding: 10px"
+            id="key1"
+            placeholder="Input numbers only"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Input Massage :</p>
+        </td>
+        <td>
+          <input
+            onfocus=""
+            ,
+            onchange="dataChange()"
+            ,
+            type="text"
+            style="padding: 10px"
+            id="massage1"
+            placeholder="Input Massage in Capitals"
+          />
+        </td>
+        <td>
+          <button onclick="getData2()">Generate</button>
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      function down() {
+        console.log("key down");
+        ocument.getElementById("massage").style.backgroundColor = "white";
+      }
+      function getData2() {
+        console.log("Input Data");
+        var key = document.getElementById("key1").value;
+        var msj = document.getElementById("massage1").value;
+        console.log("key : " + key);
+        console.log("massage : " + msj);
+        if (key != "" && msj != "") {
+          var ltrs = [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+          ];
+          var n = msj.length;
+          var k = parseInt(key);
+          //console.log(typeof parseInt(key));
+          var ms = new Array(n);
+          var nms = new Array(n);
+
+          //code
+          for (var i = 0; i < n; i++) {
+            ms[i] = msj.charAt(i);
+          }
+          for (var i = 0; i < n; i++) {
+            for (var j = 0; j < 26; j++) {
+              if (ms[i] == ltrs[j]) {
+                nms[i] = j;
+              }
+            }
+          }
+          var out = "";
+          for (var i = 0; i < n; i++) {
+            var p = nms[i] - k;
+            if (p < 0) {
+              p = p + 26;
+            }
+            out = out + ltrs[p];
+          }
+          console.log(out);
+          window.alert("Encryption of " + msj + " is " + out);
+        } else {
+          console.log("Input Data");
+          window.alert("Input Data Erroe... Checke again");
+          //document.getElementById("massage").style.backgroundColor="red";
+        }
+      }
+      let y = 0;
+      function dataChange() {
+        y++;
+        if (y > 2) {
+          console.log("Data Changed");
+        }
+      }
+    </script>
+
+    <div id="head">
+      <h2>Caesar Cipher Algorithm - Analysis</h2>
+    </div>
+
+    <table>
+      <tr>
+        <td>
+          <p>Input Massage :</p>
+        </td>
+        <td>
+          <input
+            onfocus=""
+            ,
+            onchange="dataChange()"
+            ,
+            type="text"
+            style="padding: 10px"
+            id="massage2"
+            placeholder="Input Massage in Capitals"
+          />
+        </td>
+        <td>
+          <button onclick="getData()">Generate</button>
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      function getData() {
+        console.log("Input Data");
+        var msj = document.getElementById("massage2").value;
+        console.log("massage : " + msj);
+        if (msj != "") {
+          var ltrs = [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+          ];
+          var n = msj.length;
+          //console.log(typeof parseInt(key));
+          var ms = new Array(n);
+          var nms = new Array(n);
+
+          //code
+          for (var i = 0; i < n; i++) {
+            ms[i] = msj.charAt(i);
+          }
+          for (var i = 0; i < n; i++) {
+            for (var j = 0; j < 26; j++) {
+              if (ms[i] == ltrs[j]) {
+                nms[i] = j;
+              }
+            }
+          }
+          for (var k = 0; k < 26; k++) {
+            var out = "";
+            for (var i = 0; i < n; i++) {
+              var p = nms[i] - k;
+              if (p < 0) {
+                p = p + 26;
+              }
+              out = out + ltrs[p];
+            }
+            console.log(out);
+            document.writeln(out+"   |||||||   ");
+          }
+        } else {
+          console.log("Input Data");
+          window.alert("Input Data Erroe... Checke again");
+          //document.getElementById("massage").style.backgroundColor="red";
+        }
+      }
+      let z = 0;
+      function dataChange() {
+        z++;
+        if (z > 2) {
+          console.log("Data Changed");
+        }
+      }
+    </script>
+  </body>
+</html>
